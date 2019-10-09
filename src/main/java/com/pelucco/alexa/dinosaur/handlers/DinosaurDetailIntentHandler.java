@@ -4,28 +4,28 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.interfaces.display.*;
-import com.pelucco.alexa.facts.util.FactsUtil;
+import com.pelucco.alexa.dinosaur.util.DinosaurUtil;
 
 import java.util.*;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class FactIntentHandler implements RequestHandler {
+public class DinosaurDetailIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("FactIntent").or(intentName("AMAZON.YesIntent")));
+        return input.matches(intentName("DinosaurDetail").or(intentName("AMAZON.YesIntent")));
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
 
-        Map<String, String> facts = FactsUtil.getFactMap();
-        Map<String, String> images = FactsUtil.getImageMap();
-        List<String> keys = FactsUtil.getKeys();
+        Map<String, String> facts = DinosaurUtil.getFactMap();
+        Map<String, String> images = DinosaurUtil.getImageMap();
+        List<String> keys = DinosaurUtil.getKeys();
 
         if (keys.size() <= 0) {
-            keys = FactsUtil.getKeys();
+            keys = DinosaurUtil.getKeys();
         }
 
         int index = new Random().nextInt(keys.size());

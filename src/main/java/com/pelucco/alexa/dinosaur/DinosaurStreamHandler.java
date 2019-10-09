@@ -10,8 +10,8 @@ public class DinosaurStreamHandler extends SkillStreamHandler {
 	private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
-                        new CancelandStopIntentHandler(),
-                        new FactIntentHandler(),
+                		new DinosaurDetailIntentHandler(),
+                		new CancelandStopIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
