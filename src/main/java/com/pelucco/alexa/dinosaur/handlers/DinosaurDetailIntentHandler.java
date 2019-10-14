@@ -14,29 +14,29 @@ public class DinosaurDetailIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("DinosaurDetail").or(intentName("AMAZON.YesIntent")));
+        return input.matches(intentName("DinosaurDetail").or(intentName("DinosaurDetailIntent")).or(intentName("AMAZON.YesIntent")));
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
 
-        Map<String, String> facts = DinosaurUtil.getFactMap();
-        Map<String, String> images = DinosaurUtil.getImageMap();
-        List<String> keys = DinosaurUtil.getKeys();
+        Map<String, String> dinosaurs = DinosaurUtil.getDinosaursMap();
+        Map<String, String> images = DinosaurUtil.getDinosaursImages();
+        List<String> keys = DinosaurUtil.getDinosaursKeys();
 
         if (keys.size() <= 0) {
-            keys = DinosaurUtil.getKeys();
+            keys = DinosaurUtil.getDinosaursKeys();
         }
 
         int index = new Random().nextInt(keys.size());
         String key = keys.get(index);
         keys.remove(index);
 
-        String title = "Airplane Facts";
-        String primaryText = facts.get(key);
+        String title = "Dinosauri";
+        String primaryText = dinosaurs.get(key);
         //FIXME: If you would like to display additional text, please set the secondary text accordingly
-        String secondaryText = "";
-        String speechText = "<speak> " + primaryText + "<break time=\"1s\"/>  Would you like to hear another airplane fact?" + " </speak>";
+        String secondaryText = "Quando i dinosauri dominavano la terra";
+        String speechText = "<speak> " + primaryText + "<break time=\"1s\"/>  Vuoi ascoltare un altro dinosauro?" + " </speak>";
         String imageUrl = images.get(key);
 
         Image image = getImage(imageUrl);

@@ -17,10 +17,10 @@ public class HelpIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "I can tell you an airplane fact. Try saying tell me an airplane fact";
+        String speechText = "Ti posso raccontare un dinosauro. Prova a dire raccontami un dinosauro";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("Airplane Facts", speechText)
+                .withSimpleCard("Dinosauri", speechText)
                 .withReprompt(speechText)
                 .build();
     }

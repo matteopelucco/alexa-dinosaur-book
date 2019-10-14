@@ -22,11 +22,11 @@ public class LaunchRequestHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
 
-        String title = "Airplane Facts";
-        String primaryText = "Welcome to Airplane Facts.";
-        String secondaryText = "Would you like to hear an airplane fact?";
-        String speechText = "Welcome to Airplane Facts. I can tell you facts about popular airplanes. Would you like to hear an airplane fact?";
-        String imageUrl = "https://s3.amazonaws.com/ask-samples-resources/images/background-image.jpg";
+        String title = "Dinosauri";
+        String primaryText = "Benvenuti nei Dinosauri.";
+        String secondaryText = "Vuoi ascoltare un dinosauro?";
+        String speechText = "Benvenuti nei Dinosauri. Posso raccontarti qualcosa a proposito di qualche dinosauro. Vuoi ascoltare un dinosauro?";
+        String imageUrl = "https://avante.biz/wp-content/uploads/Dinosaur-Wallpaper/Dinosaur-Wallpaper-001.jpg";
 
         Image image = getImage(imageUrl);
 

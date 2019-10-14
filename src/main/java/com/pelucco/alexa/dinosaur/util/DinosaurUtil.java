@@ -13,7 +13,7 @@ public class DinosaurUtil {
 	private static final String ALLOSAURO = "Allosauro";
 	private static final String T_REX = "T-Rex";
 
-	public static Map getFactMap() {
+	public static Map getDinosaursMap() {
         Map<String, String> map = new HashMap<>();
         map.put(T_REX, "Come gli altri tirannosauridi, Tyrannosaurus era un carnivoro bipede con un cranio largo e massiccio, bilanciato da una coda lunga e pesante. In confronto alle sue gambe robuste, gli arti anteriori di Tyrannosaurus erano corti, ma relativamente possenti e forniti di due dita artigliate. Benché sia stato superato in dimensioni da Spinosaurus il Tyrannosaurus fu il più grande dei tirannosauridi e uno dei predatori terrestri più grandi e forti conosciuti.");
         map.put(ALLOSAURO, "L'Allosaurus era un predatore bipede di medie dimensioni; il suo cranio era incredibilmente robusto e compatto e armato di una moltitudine di denti. ");
@@ -23,7 +23,7 @@ public class DinosaurUtil {
         return map;
     }
 
-    public static Map getImageMap() {
+    public static Map getDinosaursImages() {
         Map<String, String> map = new HashMap<>();
         map.put(T_REX, "https://media.mnn.com/assets/images/2018/10/TRexModelAgainstYellowEggshellBackground.jpg.653x0_q80_crop-smart.jpg");
         map.put(ALLOSAURO, "https://upload.wikimedia.org/wikipedia/commons/7/7d/Allosaurus_in_Ba%C5%82tow_white_background.jpg");
@@ -33,7 +33,7 @@ public class DinosaurUtil {
         return map;
     }
 
-    public static List getKeys() {
+    public static List getDinosaursKeys() {
         List<String> keys = new ArrayList<>();
         keys.add(T_REX);
         keys.add(ALLOSAURO);
