@@ -14,6 +14,7 @@ public class DinosaurStreamHandler extends SkillStreamHandler {
                 		new CancelandStopIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
+                        new CaptureNameIntent(),
                         new SessionEndedRequestHandler(),
                         new FallBackIntentHandler())
                 // Add your skill id below and uncomment to enable skill ID verification

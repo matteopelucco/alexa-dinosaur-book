@@ -2,31 +2,38 @@ package com.pelucco.alexa.dinosaur.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
+import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
 import com.amazon.ask.model.interfaces.display.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.requestType;
 
-public class LaunchRequestHandler implements RequestHandler {
+public class CaptureNameIntent implements IntentRequestHandler {
 
     @Override
-    public boolean canHandle(HandlerInput input) {
-        return input.matches(requestType(LaunchRequest.class));
+    public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {
+    	return intentRequest.getIntent().getName().equals("CaptureNameIntent");
+        // return input.matches(intentName("CaptureNameIntent"));
     }
 
     @Override
-    public Optional<Response> handle(HandlerInput input) {
-
+    public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
+    	
+    	final Slot name = intentRequest.getIntent().getSlots().get("name");
+    	
         String title = "Il Libro dei Dinosauri";
-        String primaryText = "Ascolta una storia sui Dinosauri e scopri quanto è divertente passare del tempo in loro compagnia! ";
-        String secondaryText = "Per cominciare, puoi dirmi il tuo nome?";
-        String speechText = "Ciao! Sono il Libro dei Dinosauri. Sono qui per raccontarti una storia sui Dinosauri. Per cominciare, vuoi dirmi come ti chiami?";
-        String repromptText = "Mi sai dire il tuo nome?";
+        String primaryText = "Ciao " + name.getValue() + ", che bello conoscerti! Ascolta una storia sui Dinosauri e scopri quanto è divertente passare del tempo in loro compagnia!";
+        String secondaryText = "Vuoi ascoltare una storia?";
+        String speechText = "Ciao " + name.getValue() + ", che bello conoscerti! " + secondaryText;
+        String repromptText = "Ciao " + name.getValue() + ", vuoi che ti racconto una storia dei Dinosauri?";
         
         String imageUrl = "https://avante.biz/wp-content/uploads/Dinosaur-Wallpaper/Dinosaur-Wallpaper-001.jpg";
 
